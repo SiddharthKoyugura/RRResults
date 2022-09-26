@@ -67,6 +67,11 @@ body {
     padding: 1rem;
 }
 
+.table-body {
+    overflow-x: scroll;
+    width: 100vw;
+}
+
 h1 {
     font-size: 1.4rem;
 }
@@ -110,11 +115,15 @@ h1 {
         font-size: 2.5rem;
     }
     .text-flash {
-        font-size: 1rem;
+        font-size: 0.7rem;
         font-weight: 600;
     }
 
     .footer p{
         font-size: 1rem;
+    }
+
+    .table {
+        font-size: 0.6rem;
     }
 }
