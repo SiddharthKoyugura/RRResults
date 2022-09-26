@@ -126,4 +126,7 @@ h1 {
     .table {
         font-size: 0.6rem;
     }
+    .sgpa-table .thead{
+        font-size: 1rem;
+    }
 }
