@@ -1,0 +1,49 @@
+{% include "header.html" %}
+ <div class="container-fluid">
+    <div class="personal-details row container">
+        <h1 class="col-lg-4 col-md-6 col-lg-6">Name: <span>{{ personal_data["NAME:"].title() }}</span></h1>
+        <h1 class="col-lg-4 col-md-6 col-lg-6">Father Name: <span>{{ personal_data["FATHER NAME:"].title() }}</span></h1>
+        <h1 class="col-lg-4 col-md-6 col-lg-6">Roll Number: <span>{{ personal_data["HTNO:"] }}</span></h1>
+        <h1 class="col-lg-4 col-md-6 col-lg-6">College: <span>{{ personal_data["COLLEGE CODE:"] }}</span></h1>
+    </div>
+    <!-- <div class="personal-details">
+        <h1>Roll Number: <span>20VE1A66A0</span></h1>
+        <h1>College: <span>VE</span></h1>
+    </div> -->
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">S.No</th>
+                <th scope="col">Subject Code</th>
+                <th scope="col">Subject Name</th>
+                <th scope="col">Marks</th>
+                <th scope="col">Grade</th>
+                <th scope="col">Credits</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in marks_data: %}
+                <tr>
+                    <th scope="row">{{ marks_data.index(data)+1 }}</th>
+                    <td>{{ data.subject_code }}</td>
+                    <td>{{ data.subject_name }}</td>
+                    <td>{{ data.marks }}</td>
+                    <td>{{ data.grade }}</td>
+                    <td>{{ data.credits }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="sgpa-table">
+        <table class="table table-bordered table-dark">
+            <thead class="thead">
+                <th>SGPA</th>
+                <th>{{ sgpa }}</th>
+            </thead>
+        </table>
+    </div>
+ </div>
+ <div class="sgpa-table">
+    <a href="{{ url_for('home') }}" class="btn btn-lg btn-dark">Go Back!</a>
+ </div>
+ 

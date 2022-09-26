@@ -1,0 +1,19 @@
+{% include "header.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages: %}
+        <div class="flashes">
+            <span class="text-flash">{{ messages[0] }}</span>
+        </div>  
+        {% endif %}
+    {% endwith %}
+
+     <div class="jumbotron">
+        <form action="{{ url_for('home') }}" method="post">
+            {{ form.csrf_token }}
+            {{ wtf.quick_form(form) }}
+            <!-- <a href=""><button type="submit" class="btn btn-dark">Results</button></a> -->
+        </form>
+     </div>
+{% include "footer.html" %}
