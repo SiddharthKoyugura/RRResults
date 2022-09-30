@@ -143,6 +143,8 @@ def get_result(roll):
             results_dict[sem_code] = marks_data
             marks_data = []
             sgpa = []
+        else:
+            break
     return results_dict
 
 # get_result("20ve1a6688")
