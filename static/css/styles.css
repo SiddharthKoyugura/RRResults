@@ -4,6 +4,7 @@
 body {
     font-family: "Fira Sans", sans-serif;
     background: #CDF0EA;
+    overflow-x: hidden !important;
 }
 
 .control-label {
@@ -67,13 +68,14 @@ body {
     padding: 1rem;
 }
 
-.table-body {
-    overflow-x: scroll;
-    width: 100vw;
-}
-
 h1 {
     font-size: 1.4rem;
+}
+
+.sem-code {
+    text-align: center;
+    margin-top: 2rem;
+    font-weight: 800;
 }
 
 /* Flash Message */

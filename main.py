@@ -12,7 +12,7 @@ app.config["SECRET_KEY"] = "ILoveMyFamilyMoreThanAnything"
 
 class StudentForm(FlaskForm):
     htno = StringField(label="Enter your Roll Number:", validators=[Length(min=10, max=10), DataRequired()])
-    code = SelectField(label="Semester:", choices=[("1-1", "1-1"), ("1-2", "1-2"), ("2-1", "2-1"), ("2-2", "2-2"), ("3-1", "3-1"), ("3-2", "3-2"), ("4-1", "4-1"), ("4-2", "4-2")], validators=[DataRequired()])
+    # code = SelectField(label="Semester:", choices=[("1-1", "1-1"), ("1-2", "1-2"), ("2-1", "2-1"), ("2-2", "2-2"), ("3-1", "3-1"), ("3-2", "3-2"), ("4-1", "4-1"), ("4-2", "4-2")], validators=[DataRequired()])
     submit = SubmitField(label="Get Result")
 
 # Get Year for footer
@@ -23,16 +23,23 @@ year = x.year
 def home():
     sform = StudentForm()
     if sform.validate_on_submit():
-        return redirect(url_for('results', roll=sform.htno.data, sem_code=sform.code.data))
+        return redirect(url_for('results', roll=sform.htno.data))
     return render_template("home.html", form=sform, year=year)
 
 @app.route("/results")
 def results():
     roll = request.args["roll"]
-    sem_code = request.args["sem_code"]
-    marks_data = get_result(roll, sem_code)
+    marks_data = get_result(roll)
+    cgpa = 0
+    i = 0
+    for sem_code in ["1-1", "1-2", "2-1", "2-2", "3-1", "3-2", "4-1", "4-2"]: 
+        try:
+            cgpa += marks_data[sem_code][-1]["sgpa"]
+            i += 1
+        except:
+            pass
     if marks_data:
-        return render_template("result.html", marks_data=marks_data, sgpa=sgpa[len(sgpa)-1], personal_data=personal_data)
+        return render_template("result.html", marks_data=marks_data, personal_data=personal_data, cgpa=round(cgpa / i,2))
     flash("INVALID CREDENTIALS / JNTUH SERVERS ARE DOWN")
     return redirect(url_for("home"))
 

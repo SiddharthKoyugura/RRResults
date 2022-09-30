@@ -1,3 +1,4 @@
+from pprint import pprint
 import aiohttp
 import asyncio
 from bs4 import BeautifulSoup
@@ -23,6 +24,7 @@ personal_data = {}
 marks_data = []
 grades_data = {"O":10, "A+":9, "A":8, "B+":7, "B":6, "C":5}
 sgpa = []
+results_dict = {}
 
 # Get data from the jntuh website
 async def main(exam_code, roll):
@@ -131,8 +133,17 @@ def get_sem_codes_list(sem_code):
         return sem42
 
 # Called from the Flask
-def get_result(roll, sem_code):
-    global marks_data, sgpa
-    marks_data = []
-    verify_results(roll.upper(), get_sem_codes_list(sem_code))
-    return marks_data
+def get_result(roll):
+    global marks_data, sgpa, results_dict
+    results_dict = {}
+    for sem_code in ["1-1", "1-2", "2-1", "2-2", "3-1", "3-2", "4-1", "4-2"]:
+        verify_results(roll.upper(), get_sem_codes_list(sem_code))
+        if marks_data:
+            marks_data.append({"sgpa":sgpa[-1]})
+            results_dict[sem_code] = marks_data
+            marks_data = []
+            sgpa = []
+    return results_dict
+
+# get_result("20ve1a6688")
+# pprint(results_dict)

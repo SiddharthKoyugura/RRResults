@@ -6,10 +6,9 @@
         <h1 class="col-lg-4 col-md-6 col-lg-6">Roll Number: <span>{{ personal_data["HTNO:"] }}</span></h1>
         <h1 class="col-lg-4 col-md-6 col-lg-6">College: <span>{{ personal_data["COLLEGE CODE:"] }}</span></h1>
     </div>
-    <!-- <div class="personal-details">
-        <h1>Roll Number: <span>20VE1A66A0</span></h1>
-        <h1>College: <span>VE</span></h1>
-    </div> -->
+    {% for sem_code in ["1-1", "1-2", "2-1", "2-2", "3-1", "3-2", "4-1", "4-2"]: %}
+    {% if marks_data[sem_code]: %}
+        <h1 class="sem-code">Semester: {{ sem_code }}</h1>
     <div class="table-body">
         <table class="table table-striped">
             <thead class="thead-dark">
@@ -24,16 +23,19 @@
             </thead>
             
                 <tbody>
-                    {% for data in marks_data: %}
-                        <tr>
-                            <th scope="row">{{ marks_data.index(data)+1 }}</th>
-                            <td>{{ data.subject_code }}</td>
-                            <td>{{ data.subject_name }}</td>
-                            <td>{{ data.marks }}</td>
-                            <td>{{ data.grade }}</td>
-                            <td>{{ data.credits }}</td>
-                        </tr>
-                    {% endfor %}
+                    
+                        {% for data in marks_data[sem_code] %}
+                            {% if not data["sgpa"]: %}
+                            <tr>
+                                <th scope="row">{{ marks_data[sem_code].index(data)+1 }}</th>
+                                <td>{{ data.subject_code }}</td>
+                                <td>{{ data.subject_name }}</td>
+                                <td>{{ data.marks }}</td>
+                                <td>{{ data.grade }}</td>
+                                <td>{{ data.credits }}</td>
+                            </tr>
+                            {% endif %}
+                        {% endfor %}
                 </tbody>
         </table>
     </div>
@@ -41,7 +43,17 @@
         <table class="table table-bordered table-dark">
             <thead class="thead">
                 <th>SGPA</th>
-                <th>{{ sgpa }}</th>
+                <th>{{ marks_data[sem_code][-1]["sgpa"] }}</th>
+            </thead>
+        </table>
+    </div>
+        {% endif %}
+    {% endfor %}
+    <div class="sgpa-table">
+        <table class="table table-bordered table-primary">
+            <thead class="thead">
+                <th>CGPA</th>
+                <th>{{ cgpa }}</th>
             </thead>
         </table>
     </div>
