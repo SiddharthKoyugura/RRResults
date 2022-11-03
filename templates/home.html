@@ -11,8 +11,26 @@
 
      <div class="jumbotron">
         <form action="{{ url_for('home') }}" method="post">
+            <div>
+                <h1 class="note">Get All Sem Results with CGPA</h1>
+            </div>
+            
             {{ form.csrf_token }}
             {{ wtf.quick_form(form) }}
+            <!-- <a href=""><button type="submit" class="btn btn-dark">Results</button></a> -->
+        </form>
+     </div>
+     <div class="">
+        <h1 class="note">(OR)</h1>
+     </div>
+     <div class="jumbotron">
+        <form action="{{ url_for('home') }}" method="post">
+            <div>
+                <h1 class="note">Get Single Sem Results with SGPA</h1>
+            </div>
+            
+            {{ form2.csrf_token }}
+            {{ wtf.quick_form(form2) }}
             <!-- <a href=""><button type="submit" class="btn btn-dark">Results</button></a> -->
         </form>
      </div>

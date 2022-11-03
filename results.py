@@ -13,11 +13,11 @@ headers = {
 sem11 = [1323, 1358, 1404, 1430, 1467, 1504, 1572]
 sem12 = [1356, 1363, 1381, 1435, 1448, 1481, 1503, 1570]
 sem21 = [1391, 1425, 1449, 1496, 1560]
-sem22 = [1437, 1447, 1476, 1501, 1565]
-sem31 = [1454, 1491, 1550]
-sem32 = [1502, 1555]
-sem41 = [1545]
-sem42 = [1580]
+sem22 = [1437, 1447, 1476, 1501, 1565, 1605]
+sem31 = [1454, 1491, 1550, 1590]
+sem32 = [1502, 1555, 1595]
+sem41 = [1545, 1585]
+sem42 = [1580, 1600]
 
 
 personal_data = {}
@@ -136,6 +136,7 @@ def get_sem_codes_list(sem_code):
 def get_result(roll):
     global marks_data, sgpa, results_dict
     results_dict = {}
+    # for sem_code in ["1-1"]:
     for sem_code in ["1-1", "1-2", "2-1", "2-2", "3-1", "3-2", "4-1", "4-2"]:
         verify_results(roll.upper(), get_sem_codes_list(sem_code))
         if marks_data:
@@ -147,5 +148,20 @@ def get_result(roll):
             break
     return results_dict
 
+def get_single_sem_result(roll, sem_code):
+    global marks_data, sgpa
+    marks_data, sgpa = [], []
+    verify_results(roll.upper(), get_sem_codes_list(sem_code))
+    return [marks_data, sgpa]
+
+# def get_result(roll, sem_code):
+#     global marks_data, sgpa
+#     marks_data, sgpa = [], []
+#     verify_results(roll.upper(), get_sem_codes_list(sem_code))
+#     return marks_data
+get_single_sem_result("20ve1a66a0", "1-1")
+# print(sgpa)
+# get_result("20ve1a6689", "1-1")
+# pprint(personal_data)
 # get_result("20ve1a6688")
 # pprint(results_dict)
