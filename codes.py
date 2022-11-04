@@ -40,5 +40,5 @@ sem32 = sorted(sem32)
 sem41 = sorted(sem41)
 sem42 = sorted(sem42)
 
-for i in [sem11, sem12, sem21, sem22, sem31, sem32, sem41, sem42]:
-    print(i)
+# for i in [sem11, sem12, sem21, sem22, sem31, sem32, sem41, sem42]:
+#     print(i)
