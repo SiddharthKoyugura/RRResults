@@ -160,7 +160,7 @@ def get_single_sem_result(roll, sem_code):
 #     marks_data, sgpa = [], []
 #     verify_results(roll.upper(), get_sem_codes_list(sem_code))
 #     return marks_data
-get_single_sem_result("20ve1a66a0", "1-1")
+# get_single_sem_result("20ve1a66a0", "1-1")
 # print(sgpa)
 # get_result("20ve1a6689", "1-1")
 # pprint(personal_data)
