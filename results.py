@@ -2,7 +2,6 @@ from pprint import pprint
 import aiohttp
 import asyncio
 from bs4 import BeautifulSoup
-# from codes import *
 
 headers = {
     'Upgrade-Insecure-Requests': '1',
@@ -13,7 +12,7 @@ headers = {
 # R18 Semester codes of all years
 sem11 = [1323, 1358, 1404, 1430, 1467, 1504, 1572]
 sem12 = [1356, 1363, 1381, 1435, 1448, 1481, 1503, 1570]
-sem21 = [1391, 1425, 1449, 1496, 1560, 1610]
+sem21 = [1391, 1425, 1449, 1496, 1560]
 sem22 = [1437, 1447, 1476, 1501, 1565, 1605]
 sem31 = [1454, 1491, 1550, 1590]
 sem32 = [1502, 1555, 1595]
