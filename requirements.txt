@@ -5,3 +5,4 @@ Flask_Bootstrap==3.3.7.1
 Flask_WTF==1.0.1
 requests==2.28.1
 WTForms==3.0.1
+Gunicorn==20.1.0
