@@ -1,5 +1,5 @@
 # RRResults
-The Page is live at https://rrresults.herokuapp.com/
+The Page is live at https://rrresults.onrender.com/
 
 A simple Web application which let the students to check their results with calculated SGPA(Semester-Grade-Point-Average), which is not available in JNTUH university results Page.
 # Demo
