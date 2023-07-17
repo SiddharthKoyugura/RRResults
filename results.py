@@ -1,4 +1,3 @@
-from pprint import pprint
 import aiohttp
 import asyncio
 from bs4 import BeautifulSoup
@@ -17,7 +16,7 @@ sem22 = [1437, 1447, 1476, 1501, 1565, 1605, 1627, 1663]
 sem31 = [1454, 1491, 1550, 1590, 1626, 1639, 1645, 1655]
 sem32 = [1502, 1555, 1595, 1625, 1638, 1649, 1654]
 sem41 = [1545, 1585, 1624, 1640, 1644, 1653]
-sem42 = [1580, 1600, 1623]
+sem42 = [1580, 1600, 1623, 1672]
 
 
 personal_data = {}
