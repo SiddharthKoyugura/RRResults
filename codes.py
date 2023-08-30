@@ -14,7 +14,7 @@ for tr in table_row:
     link = a.get("href")
     if " (R18) " in text:
         examcode = int("".join(filter(lambda i:i.isdigit(), link))[0:4])
-        print(examcode)
+        # print(examcode)
         if " I Year I " in text:
             sem11.add(examcode)
         elif " I Year II " in text:
